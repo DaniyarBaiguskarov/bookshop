@@ -60,8 +60,6 @@ const StyledSum = styled.div`
   @media ${(props) => props.theme.media.phone} {
     display: none;
   }
-  @media ${(props) => props.theme.media.tablet} {
-  }
 `;
 
 const StyledDeleteButton = styled.button`
