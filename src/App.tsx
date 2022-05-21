@@ -1,26 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Route, Routes } from "react-router-dom";
+import styled from "styled-components";
+import Body from "./components/Body";
+import { BookPage } from "./components/BookPage";
+import { Cart } from "./components/Cart";
+import Header from "./components/Header";
 
-function App() {
+const StyledApp = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-bottom: 20px;
+`;
+
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <StyledApp>
+      <Header />
+
+      <Routes>
+        <Route path="/cart" element={<Cart />} />
+        <Route path={"/"} element={<Body />} />
+        <Route path={"/:id"} element={<BookPage />} />
+      </Routes>
+    </StyledApp>
   );
-}
+};
 
 export default App;
