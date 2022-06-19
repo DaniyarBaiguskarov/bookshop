@@ -1,17 +1,12 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import styled from "styled-components";
-import Body from "./components/Body";
-import { BookPage } from "./components/BookPage";
-import { Cart } from "./components/Cart";
+
+import Body from "./pages/Body";
+import { BookPage } from "./pages/BookPage";
+import { Cart } from "./pages/Cart";
 import Header from "./components/Header";
 
-const StyledApp = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  margin-bottom: 20px;
-`;
+import { StyledApp } from "./App.style";
 
 const App: React.FC = () => {
   return (

@@ -1,129 +1,18 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import styled from "styled-components";
+
 import { useActions } from "../hooks/useActions";
 
-const StyledCartItem = styled.div`
-  display: flex;
-
-  justify-content: start;
-  padding: 10px;
-
-  border-bottom: 1px solid #d4bebe;
-  width: auto;
-`;
-
-const StyledImage = styled.div`
-  padding-right: 10px;
-  width: auto;
-`;
-
-const StyledTitle = styled.div`
-  width: 76%;
-  a {
-    font-size: 1.5em;
-    color: #3d70b2;
-    &:hover {
-      color: #4186df;
-    }
-  }
-  div {
-    color: #7d8290;
-  }
-
-  @media ${(props) => props.theme.media.tablet} {
-    width: 60%;
-  }
-`;
-
-const StyledButtons = styled.div`
-  width: 10%;
-  display: inline-flex;
-
-  > * {
-    height: 40px;
-    width: 40px;
-    padding: 0;
-    border: 1px solid gray;
-    margin: 0;
-    background: transparent;
-
-    text-align: center;
-    @media ${(props) => props.theme.media.desktop} {
-      &:hover {
-        background-color: #77cc6c;
-        color: white;
-      }
-    }
-  }
-
-  .right {
-    border-right: none;
-    cursor: pointer;
-    border-radius: 5px 0 0 5px;
-  }
-  .left {
-    border-left: none;
-    cursor: pointer;
-    border-radius: 0 5px 5px 0;
-  }
-  @media ${(props) => props.theme.media.phone} {
-    width: 70%;
-  }
-  @media ${(props) => props.theme.media.tablet} {
-    width: 20%;
-  }
-`;
-
-const StyledSummary = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 10%;
-
-  @media ${(props) => props.theme.media.tablet} {
-    width: 24%;
-  }
-`;
-const StyledSum = styled.div`
-  font-weight: bold;
-  font-size: 1.25em;
-  margin-left: auto;
-  margin-right: auto;
-`;
-const StyledDeleteButton = styled.button`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  background: transparent;
-  border: none;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 20px;
-  color: #7d8290;
-  svg {
-    fill: #7d8290;
-    margin-right: 8px;
-  }
-  font-height: 24px;
-`;
-
-const Flex = styled("div")<{ direction?: string; justify?: string }>`
-  display: flex;
-  flex-direction: ${(props) => props.direction};
-  justify-content: ${(props) => props.justify || "stretch"};
-
-  width: 100%;
-  @media ${(props) => props.theme.media.phone} {
-    flex-direction: column;
-    justify-content: space-around;
-    margin-left: 10px;
-    > * {
-      padding: 0 0 10px 0;
-    }
-  }
-`;
+import {
+  StyledButtons,
+  StyledCartItem,
+  StyledDeleteButton,
+  StyledImage,
+  StyledSum,
+  StyledSummary,
+  StyledTitle,
+  Flex,
+} from "./CartItem.style";
 
 interface CartItemProps {
   id: string;

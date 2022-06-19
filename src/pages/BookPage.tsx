@@ -1,59 +1,18 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import styled from "styled-components";
+
 import settings from "../config";
 
 import { ItemType } from "../types/books";
-import ToCartButton from "./ToCartButton";
+import ToCartButton from "../components/ToCartButton";
 
-const StyledBookPage = styled.main`
-  display: flex;
-  flex-direction: column;
-
-  width: 70%;
-  margin: 0 auto 0 auto;
-  > * {
-    margin: 0.5em 0 0.5em 0;
-  }
-  @media ${(props) => props.theme.media.phone} {
-    width: 90%;
-  }
-`;
-
-const Flex = styled("div")<{ direction?: string; justify?: string }>`
-  display: flex;
-  padding: 0 10px 0 10px;
-  flex-direction: ${(props) => props.direction};
-  justify-content: ${(props) => props.justify || "stretch"};
-  > * {
-    padding: 10px 0 10px 0;
-  }
-`;
-
-const StyledBookCharacteristics = styled(Flex)`
-  > * {
-    padding: 0.25em;
-    @media ${(props) => props.theme.media.phone} {
-      flex-direction: column;
-      justify-content: space-around;
-    }
-  }
-`;
-
-const StyledText = styled("p")<{
-  color?: string;
-  size?: string;
-  weight?: string;
-  setMarginTop?: string;
-  align?: string;
-}>`
-  color: ${(props) => props.color};
-  font-size: ${(props) => props.size};
-  font-weight: ${(props) => props.weight};
-  margin-top: ${(props) => props.setMarginTop};
-  align-self: ${(props) => props.align};
-`;
+import {
+  StyledBookCharacteristics,
+  StyledBookPage,
+  StyledText,
+  Flex,
+} from "./BookPage.style";
 
 export const BookPage: React.FC = () => {
   const params = useParams<{ id: string }>();
